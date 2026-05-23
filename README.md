@@ -32,10 +32,18 @@ Data is sourced from the [CoinGecko public API](https://www.coingecko.com/en/api
 
 ## Visualisations
 
+![Price Time Series](charts/price_timeseries.png)
+
+![Deviation Box Plot](charts/deviation_boxplot.png)
+
+![Monthly Heatmap](charts/monthly_heatmap.png)
+
+![Risk Radar](charts/risk_radar.png)
+
 | Chart | What it shows |
 |---|---|
 | Daily price time series | Price vs $1 peg with ±0.5% and ±1.0% bands highlighted |
-| Deviation box plot | Distribution of `|price − $1|` per stablecoin with de-peg thresholds |
+| Deviation box plot | Distribution of `\|price − $1\|` per stablecoin with de-peg thresholds |
 | Monthly deviation heatmap | How stress concentrates in specific calendar months |
 | Risk radar chart | Normalised multi-metric risk profile across all four stablecoins |
 
@@ -57,6 +65,7 @@ Data is sourced from the [CoinGecko public API](https://www.coingecko.com/en/api
 ```
 .
 ├── stablecoin_peg_analysis.ipynb   # Main analysis notebook
+├── charts/                         # Exported PNG charts used in README
 ├── requirements.txt
 ├── .gitignore
 └── README.md
@@ -78,7 +87,7 @@ pip install -r requirements.txt
 jupyter notebook stablecoin_peg_analysis.ipynb
 ```
 
-Run all cells top-to-bottom. The notebook fetches live data on execution — an internet connection is required. Total runtime is approximately 10–15 seconds (rate-limit sleep included).
+Run all cells top-to-bottom. The notebook fetches live data on execution — an internet connection is required. Total runtime is approximately 10–15 seconds (rate-limit sleep included). The visualisation cells also refresh the PNG files under `charts/` for this README.
 
 ---
 
@@ -90,7 +99,10 @@ Run all cells top-to-bottom. The notebook fetches live data on execution — an 
 | `pandas` | Data manipulation & aggregation |
 | `numpy` | Numerical operations |
 | `plotly` | Interactive visualisations |
+| `kaleido` | Static PNG export for README charts |
 | `scipy` | Kruskal–Wallis & Mann–Whitney tests |
+
+Kaleido uses a local Chrome/Chromium browser for static image export.
 
 ---
 
