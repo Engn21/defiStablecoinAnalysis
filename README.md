@@ -1,5 +1,5 @@
 # Stablecoin Peg Stability & Risk Analysis
-
+This research was created with the aim of finding the answer to the research question given below:
 > **Research question:** How tightly do major stablecoins maintain their $1 peg, under what conditions do they deviate, and what does this imply for risk-aware capital allocation in DeFi?
 
 ---
@@ -21,7 +21,7 @@ Data is sourced from the [CoinGecko public API](https://www.coingecko.com/en/api
 
 ## Key Findings
 
-- **Fiat-collateralised stablecoins (USDT, USDC)** show the tightest day-to-day peg but carry **concentrated, discontinuous risk** — a single counterparty/custodian failure can cause rapid de-pegs (e.g., USDC during the March 2023 SVB collapse, which resolved within ~72 hours).
+- **Fiat-collateralised stablecoins (USDT, USDC)** show the tightest day-to-day peg but carry **concentrated, discontinuous risk** a single counterparty/custodian failure can cause rapid de-pegs (e.g., USDC during the March 2023 SVB collapse, which resolved within ~72 hours).
 - **DAI** exhibits slightly higher baseline deviation but its collateral ratios are fully on-chain and verifiable in real time, making it the **most observable** risk in the set.
 - **FRAX**'s fractional mechanism shows the widest deviation distribution and introduces **reflexive risk**: its FXS collateral component can weaken precisely during market stress, amplifying de-peg potential at the worst moment.
 - A **Kruskal–Wallis test** confirms the four deviation distributions are statistically distinct (p < 0.05) — each stablecoin warrants separate risk treatment in a portfolio, rather than being grouped as generic "$1 assets".
@@ -43,12 +43,12 @@ Data is sourced from the [CoinGecko public API](https://www.coingecko.com/en/api
 
 ## Methodology
 
-1. **Data collection** — CoinGecko `/coins/{id}/market_chart` endpoint, daily interval, 365 days
-2. **Cleaning** — forward-fill for at most 1–2 isolated gaps (exchange non-reporting days)
-3. **Deviation metric** — `δ_t = |price_t − 1.00|`
-4. **Risk metrics** — mean/median/max deviation, volatility (σ), days outside ±0.5% and ±1.0% bands
-5. **De-peg detection** — flag days where `δ_t > 0.01`; classify as premium or discount
-6. **Statistical tests** — Kruskal–Wallis (global significance) + pairwise Mann–Whitney U
+1. **Data collection**  CoinGecko `/coins/{id}/market_chart` endpoint, daily interval, 365 days
+2. **Cleaning** forward-fill for at most 1–2 isolated gaps (exchange non-reporting days)
+3. **Deviation metric** `δ_t = |price_t − 1.00|`
+4. **Risk metrics** mean/median/max deviation, volatility (σ), days outside ±0.5% and ±1.0% bands
+5. **De-peg detection** flag days where `δ_t > 0.01`; classify as premium or discount
+6. **Statistical tests** Kruskal–Wallis (global significance) + pairwise Mann–Whitney U
 
 ---
 
