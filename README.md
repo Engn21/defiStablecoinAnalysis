@@ -87,7 +87,7 @@ pip install -r requirements.txt
 jupyter notebook stablecoin_peg_analysis.ipynb
 ```
 
-Run all cells top-to-bottom. The notebook fetches live data on execution — an internet connection is required. Total runtime is approximately 10–15 seconds (rate-limit sleep included). The visualisation cells also refresh the PNG files under `charts/` for this README.
+Run all cells top-to-bottom. The notebook fetches live data on execution — an internet connection is required. Total runtime is usually around 30–60 seconds, depending on CoinGecko public API rate limits. The visualisation cells also refresh the PNG files under `charts/` for this README.
 
 ---
 
