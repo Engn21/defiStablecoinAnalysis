@@ -40,12 +40,21 @@ Data is sourced from the [CoinGecko public API](https://www.coingecko.com/en/api
 
 ![Risk Radar](charts/risk_radar.png)
 
+![Rolling Volatility](charts/rolling_volatility.png)
+
+![Volume-Weighted Deviation](charts/vw_deviation.png)
+
+![BTC Correlation](charts/btc_correlation.png)
+
 | Chart | What it shows |
 |---|---|
 | Daily price time series | Price vs $1 peg with ±0.5% and ±1.0% bands highlighted |
 | Deviation box plot | Distribution of `\|price − $1\|` per stablecoin with de-peg thresholds |
 | Monthly deviation heatmap | How stress concentrates in specific calendar months |
 | Risk radar chart | Normalised multi-metric risk profile across all four stablecoins |
+| Rolling volatility | 30-day rolling σ — shows when risk is rising or falling, not just its average |
+| Volume-weighted deviation | Liquidity-adjusted peg deviation — high-volume deviations carry more weight |
+| BTC market stress | BTC price vs stablecoin deviations — tests whether depegs cluster around market crashes |
 
 ---
 
